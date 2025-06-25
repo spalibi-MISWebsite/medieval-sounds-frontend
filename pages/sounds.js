@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { client } from '../lib/sanity'
-import SoundCard from '../components/SoundCard'
+import SoundCard from '../components/soundCard'
 import Link from 'next/link';
 
 export default function Sounds() {
