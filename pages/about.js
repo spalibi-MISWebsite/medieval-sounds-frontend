@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function About() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -8,9 +9,9 @@ export default function About() {
         {/* Header */}
         <header className="bg-[#1A0A02] text-[#E3D9D1] h-20 sticky top-0 z-50">
             <div className="flex items-center justify-between px-4 sm:px-6 lg:px-12 py-6">
-            <a href="/" className="text-xl font-bold font-serif">
+            <Link href="/" className="text-xl font-bold font-serif">
                 Medieval Iberian Sounds
-            </a>
+            </Link>
 
             {/* Hamburger */}
             <button
@@ -35,22 +36,22 @@ export default function About() {
 
             {/* Navigation Links (desktop) */}
             <ul className="hidden sm:flex space-x-6 text-sm tracking-widest uppercase font-mono">
-                <li><a href="/" className="hover:underline">Home</a></li>
-                <li><a href="/about" className="font-bold hover:underline">About</a></li>
-                <li><a href="/sounds" className="hover:underline">Sounds</a></li>
-                <li><a href="/texts" className="hover:underline">Texts</a></li>
-                <li><a href="/sources" className="hover:underline">Sources</a></li>
+                <li><Link href="/" className="hover:underline">Home</Link></li>
+                <li><Link href="/about" className="font-bold hover:underline">About</Link></li>
+                <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
+                <li><Link href="/texts" className="hover:underline">Texts</Link></li>
+                <li><Link href="/sources" className="hover:underline">Sources</Link></li>
             </ul>
             </div>
 
             {/* Navigation Links (mobile dropdown) */}
             {menuOpen && (
             <ul className="sm:hidden flex flex-col items-center space-y-4 pb-4 bg-[#1A0A02] text-sm tracking-widest uppercase font-mono">
-                <li><a href="/" className="hover:underline">Home</a></li>
-                <li><a href="/about" className="font-bold hover:underline">About</a></li>
-                <li><a href="/sounds" className="hover:underline">Sounds</a></li>
-                <li><a href="/texts" className="hover:underline">Texts</a></li>
-                <li><a href="/sources" className="hover:underline">Sources</a></li>
+                <li><Link href="/" className="hover:underline">Home</Link></li>
+                <li><Link href="/about" className="font-bold hover:underline">About</Link></li>
+                <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
+                <li><Link href="/texts" className="hover:underline">Texts</Link></li>
+                <li><Link href="/sources" className="hover:underline">Sources</Link></li>
             </ul>
             )}
         </header>
@@ -120,59 +121,58 @@ export default function About() {
             <p className="text-base sm:text-lg md:text-xl font-bold pl-4 sm:pl-12">- Simone Pinet</p>
         </div>
 
-    {/* Author Section */}
-    <section className="w-full bg-[#464B2C]/25 text-[#E3D9D1] px-6 py-20">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start md:gap-20 text-center md:text-left">
-            
-            {/* Image + Name + Email */}
-            <div className="flex flex-col items-center md:items-start w-full md:w-1/3">
-            <img
-                src="/images/headshot.jpg"
-                alt="Simone Pinet's headshot"
-                className="w-60 h-60 object-cover rounded-full"
-            />
-            <h3 className="mt-6 text-xl md:text-2xl font-semibold tracking-wide">Prof. Simone Pinet</h3>
-            <p className="text-sm md:text-base mt-2">sp349@cornell.edu</p>
+        {/* Author Section */}
+        <section className="w-full bg-[#464B2C]/25 text-[#E3D9D1] px-6 py-20">
+            <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start md:gap-20 text-center md:text-left">
+                
+                {/* Image + Name + Email */}
+                <div className="flex flex-col items-center md:items-start w-full md:w-1/3">
+                <img
+                    src="/images/headshot.jpg"
+                    alt="Simone Pinet's headshot"
+                    className="w-60 h-60 object-cover rounded-full"
+                />
+                <h3 className="mt-6 text-xl md:text-2xl font-semibold tracking-wide">Prof. Simone Pinet</h3>
+                <p className="text-sm md:text-base mt-2">sp349@cornell.edu</p>
+                </div>
+
+                {/* Description Text */}
+                <div className="mt-10 md:mt-0 w-full md:w-2/3 text-sm md:text-base leading-relaxed tracking-wide">
+                <p className="mb-4 text-lg p-2">
+                    This site complements an ongoing project on medieval Iberian sound, which will eventually have a book 
+                    focusing on different sonic operations and possibilities across the Spanish literary canon. A graduate 
+                    seminar at Cornell University was the first venue in which I experimented with this approach, and several 
+                    students participated in the initial research stage for this website; undergraduate students also helped 
+                    with research and website design with the support of a New Frontiers Grant.
+                </p>
+                <p className="mb-4 text-lg p-2">
+                    I have presented and published work related to this project, which I have included in the bibliography, 
+                    to serve as guide for anyone interested in exploring the topic.
+                </p>
+                <p className="mb-4 text-lg p-2">
+                    If you have any questions or suggestions, please contact me.
+                </p>
+                </div>
+
             </div>
+        </section>
 
-            {/* Description Text */}
-            <div className="mt-10 md:mt-0 w-full md:w-2/3 text-sm md:text-base leading-relaxed tracking-wide">
-            <p className="mb-4 text-lg p-2">
-                This site complements an ongoing project on medieval Iberian sound, which will eventually have a book 
-                focusing on different sonic operations and possibilities across the Spanish literary canon. A graduate 
-                seminar at Cornell University was the first venue in which I experimented with this approach, and several 
-                students participated in the initial research stage for this website; undergraduate students also helped 
-                with research and website design with the support of a New Frontiers Grant.
-            </p>
-            <p className="mb-4 text-lg p-2">
-                I have presented and published work related to this project, which I have included in the bibliography, 
-                to serve as guide for anyone interested in exploring the topic.
-            </p>
-            <p className="mb-4 text-lg p-2">
-                If you have any questions or suggestions, please contact me.
-            </p>
+        {/* Footer */}
+        <footer className="bg-[#1A0A02] text-[#E3D9D1] px-10 py-8">
+            <div className="flex flex-col md:flex-row justify-between items-center md:items-start max-w-7xl mx-auto">
+            <div className="text-center md:text-left mb-6 md:mb-0">
+                <h2 className="text-xl md:text-3xl font-serif mb-1">Medieval Iberian Sound</h2>
+                <p className="text-sm md:text-base font-light tracking-wide">A Digital Humanities Project</p>
             </div>
-
-        </div>
-    </section>
-
-
-      {/* Footer */}
-      <footer className="bg-[#1A0A02] text-[#E3D9D1] px-6 py-8">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-          <div className="text-center md:text-left mb-6 md:mb-0">
-            <h2 className="text-xl md:text-2xl font-serif mb-1">Medieval Iberian Sound</h2>
-            <p className="text-sm md:text-base">A Digital Humanities Project</p>
-          </div>
-          <ul className="flex flex-wrap justify-center gap-6 text-sm tracking-widest uppercase font-mono">
-            <li><a href="/" className="hover:underline">Home</a></li>
-            <li><a href="/about" className="hover:underline">About</a></li>
-            <li><a href="/sounds" className="hover:underline">Sounds</a></li>
-            <li><a href="/texts" className="hover:underline">Texts</a></li>
-            <li><a href="/sources" className="hover:underline">Sources</a></li>
-          </ul>
-        </div>
-      </footer>
+            <ul className="flex space-x-10 text-sm tracking-widest uppercase font-mono">
+                <li><Link href="/" className="hover:underline">Home</Link></li>
+                <li><Link href="/about" className="hover:underline">About</Link></li>
+                <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
+                <li><Link href="/texts" className="hover:underline">Texts</Link></li>
+                <li><Link href="/sources" className="hover:underline">Sources</Link></li>
+            </ul>
+            </div>
+        </footer>
     </>
   );
 }

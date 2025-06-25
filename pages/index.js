@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -8,9 +9,9 @@ export default function Home() {
       {/* Header */}
       <header className="bg-[#1A0A02] text-[#E3D9D1] h-20 sticky top-0 z-50">
         <div className="flex items-center justify-between px-4 sm:px-6 lg:px-12 py-6">
-          <a href="/" className="text-xl font-bold font-serif">
+          <Link href="/" className="text-xl font-bold font-serif">
             Medieval Iberian Sounds
-          </a>
+          </Link>
 
           {/* Hamburger */}
           <button
@@ -35,22 +36,22 @@ export default function Home() {
 
           {/* Navigation Links (desktop) */}
           <ul className="hidden sm:flex space-x-6 text-sm tracking-widest uppercase font-mono">
-            <li><a href="/" className="font-bold hover:underline">Home</a></li>
-            <li><a href="/about" className="hover:underline">About</a></li>
-            <li><a href="/sounds" className="hover:underline">Sounds</a></li>
-            <li><a href="/texts" className="hover:underline">Texts</a></li>
-            <li><a href="/sources" className="hover:underline">Sources</a></li>
+            <li><Link href="/" className="font-bold hover:underline">Home</Link></li>
+            <li><Link href="/about" className="hover:underline">About</Link></li>
+            <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
+            <li><Link href="/texts" className="hover:underline">Texts</Link></li>
+            <li><Link href="/sources" className="hover:underline">Sources</Link></li>
           </ul>
         </div>
 
         {/* Navigation Links (mobile dropdown) */}
         {menuOpen && (
           <ul className="sm:hidden flex flex-col items-center space-y-4 pb-4 bg-[#1A0A02] text-sm tracking-widest uppercase font-mono">
-            <li><a href="/" className="font-bold hover:underline">Home</a></li>
-            <li><a href="/about" className="hover:underline">About</a></li>
-            <li><a href="/sounds" className="hover:underline">Sounds</a></li>
-            <li><a href="/texts" className="hover:underline">Texts</a></li>
-            <li><a href="/sources" className="hover:underline">Sources</a></li>
+            <li><Link href="/" className="font-bold hover:underline">Home</Link></li>
+            <li><Link href="/about" className="hover:underline">About</Link></li>
+            <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
+            <li><Link href="/texts" className="hover:underline">Texts</Link></li>
+            <li><Link href="/sources" className="hover:underline">Sources</Link></li>
           </ul>
         )}
       </header>
@@ -91,9 +92,9 @@ export default function Home() {
               medieval sound attempting to bridge the gap between our present loss and a fictional archive.
             </p>
             <div className="mt-6 flex justify-center md:justify-start">
-              <a href="/about" className="w-full sm:w-auto bg-[#151A2F] hover:bg-[#2B3153] transition-colors duration-200 rounded px-6 py-3 font-mono text-sm text-[#E3D9D1] text-center">
+              <Link href="/about" className="w-full sm:w-auto bg-[#151A2F] hover:bg-[#2B3153] transition-colors duration-200 rounded px-6 py-3 font-mono text-sm text-[#E3D9D1] text-center">
                 LEARN MORE
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -116,12 +117,12 @@ export default function Home() {
             </div>
             <p className="font-serif text-xl mb-4">Corneja / Crow</p>
             <img src="/images/audio-bar.png" alt="Audio waveform" className="mx-auto w-56 mb-6" />
-            <a
+            <Link
               href="/sounds"
               className="bg-[#765B33] hover:bg-[#B59F79] transition-colors duration-200 rounded px-6 py-3 font-mono text-sm text-[#E1DBD2]"
             >
               EXPLORE ALL SOUNDS
-            </a>
+            </Link>
           </div>
 
           {/* Featured Text */}
@@ -136,33 +137,31 @@ export default function Home() {
               Libro de horas, según el uso de Roma<br />
               <span className="text-lg">1401–1500</span>
             </p>
-            <a
+            <Link
               href="/texts"
               className="bg-[#765B33] hover:bg-[#B59F79] transition-colors duration-200 rounded px-6 py-3 font-mono text-sm text-[#E1DBD2]"
             >
               EXPLORE ALL TEXTS
-            </a>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#1A0A02] text-[#E3D9D1] px-6 sm:px-10 py-8">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-6">
-          <div className="text-center md:text-left">
+      <footer className="bg-[#1A0A02] text-[#E3D9D1] px-10 py-8">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-start max-w-7xl mx-auto">
+          <div className="text-center md:text-left mb-6 md:mb-0">
             <h2 className="text-xl md:text-3xl font-serif mb-1">Medieval Iberian Sound</h2>
-            <p className="text-sm md:text-base font-light tracking-wide">
-              A Digital Humanities Project
-            </p>
+              <p className="text-sm md:text-base font-light tracking-wide">A Digital Humanities Project</p>
           </div>
-          <ul className="flex flex-wrap justify-center md:justify-end space-x-6 text-sm tracking-widest uppercase font-mono">
-            <li><a href="/" className="hover:underline">Home</a></li>
-            <li><a href="/about" className="hover:underline">About</a></li>
-            <li><a href="/sounds" className="hover:underline">Sounds</a></li>
-            <li><a href="/texts" className="hover:underline">Texts</a></li>
-            <li><a href="/sources" className="hover:underline">Sources</a></li>
-          </ul>
-        </div>
+            <ul className="flex space-x-10 text-sm tracking-widest uppercase font-mono">
+              <li><Link href="/" className="hover:underline">Home</Link></li>
+              <li><Link href="/about" className="hover:underline">About</Link></li>
+              <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
+              <li><Link href="/texts" className="hover:underline">Texts</Link></li>
+              <li><Link href="/sources" className="hover:underline">Sources</Link></li>
+            </ul>
+          </div>
       </footer>
     </>
   );

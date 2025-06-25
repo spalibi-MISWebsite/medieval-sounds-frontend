@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { client } from '../lib/sanity'
+import Link from 'next/link';
 
 export default function Sources() {
     const [sources, setSources] = useState([])
@@ -20,9 +21,9 @@ export default function Sources() {
         {/* Header */}
         <header className="bg-[#1A0A02] text-[#E3D9D1] h-20 sticky top-0 z-50">
             <div className="flex items-center justify-between px-4 sm:px-6 lg:px-12 py-6">
-            <a href="/" className="text-xl font-bold font-serif">
+            <Link href="/" className="text-xl font-bold font-serif">
                 Medieval Iberian Sounds
-            </a>
+            </Link>
 
             {/* Hamburger */}
             <button
@@ -47,22 +48,22 @@ export default function Sources() {
 
             {/* Navigation Links (desktop) */}
             <ul className="hidden sm:flex space-x-6 text-sm tracking-widest uppercase font-mono">
-                <li><a href="/" className="hover:underline">Home</a></li>
-                <li><a href="/about" className="hover:underline">About</a></li>
-                <li><a href="/sounds" className="hover:underline">Sounds</a></li>
-                <li><a href="/texts" className="hover:underline">Texts</a></li>
-                <li><a href="/sources" className="font-bold hover:underline">Sources</a></li>
+                <li><Link href="/" className="hover:underline">Home</Link></li>
+                <li><Link href="/about" className="hover:underline">About</Link></li>
+                <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
+                <li><Link href="/texts" className="hover:underline">Texts</Link></li>
+                <li><Link href="/sources" className="font-bold hover:underline">Sources</Link></li>
             </ul>
             </div>
 
             {/* Navigation Links (hamburger) */}
             {menuOpen && (
             <ul className="sm:hidden flex flex-col items-center space-y-4 pb-4 bg-[#1A0A02] text-sm tracking-widest uppercase font-mono">
-                <li><a href="/" className="hover:underline">Home</a></li>
-                <li><a href="/about" className="hover:underline">About</a></li>
-                <li><a href="/sounds" className="hover:underline">Sounds</a></li>
-                <li><a href="/texts" className="hover:underline">Texts</a></li>
-                <li><a href="/sources" className="font-bold hover:underline">Sources</a></li>
+                <li><Link href="/" className="hover:underline">Home</Link></li>
+                <li><Link href="/about" className="hover:underline">About</Link></li>
+                <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
+                <li><Link href="/texts" className="hover:underline">Texts</Link></li>
+                <li><Link href="/sources" className="font-bold hover:underline">Sources</Link></li>
             </ul>
             )}
         </header>
@@ -88,9 +89,9 @@ export default function Sources() {
             <ul className="px-20 space-y-4 list-disc text-lg text-[#1A0A02]">
             {sources.map((source, idx) => (
                 <li key={idx}>
-                    <a href={source.link} target="_blank" rel="noopener noreferrer" className="underline hover:text-[#3B0A0A]">
+                    <Link href={source.link} target="_blank" rel="noopener noreferrer" className="underline hover:text-[#3B0A0A]">
                         {source.siteTitle}
-                    </a>
+                    </Link>
                 </li>
             ))}
             </ul>
@@ -129,7 +130,6 @@ export default function Sources() {
             </div>
         </section>
 
-
         <footer className="bg-[#1A0A02] text-[#E3D9D1] px-10 py-8">
             <div className="flex flex-col md:flex-row justify-between items-center md:items-start max-w-7xl mx-auto">
             <div className="text-center md:text-left mb-6 md:mb-0">
@@ -137,11 +137,11 @@ export default function Sources() {
                 <p className="text-sm md:text-base font-light tracking-wide">A Digital Humanities Project</p>
             </div>
             <ul className="flex space-x-10 text-sm tracking-widest uppercase font-mono">
-                <li><a href="/" className="hover:underline">Home</a></li>
-                <li><a href="/about" className="hover:underline">About</a></li>
-                <li><a href="/sounds" className="hover:underline">Sounds</a></li>
-                <li><a href="/texts" className="hover:underline">Texts</a></li>
-                <li><a href="/sources" className="hover:underline">Sources</a></li>
+                <li><Link href="/" className="hover:underline">Home</Link></li>
+                <li><Link href="/about" className="hover:underline">About</Link></li>
+                <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
+                <li><Link href="/texts" className="hover:underline">Texts</Link></li>
+                <li><Link href="/sources" className="hover:underline">Sources</Link></li>
             </ul>
             </div>
         </footer>
