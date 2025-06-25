@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { client } from '../../lib/sanity'
 import SoundCard from '../../components/soundCard'
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function TextDetail() {
     const router = useRouter()

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function About() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -57,19 +58,21 @@ export default function About() {
         </header>
 
         {/* Cover Section */}
-        <div className="relative -mt-40 z-0">
-                <img
+        <div className="relative -mt-40 z-0 w-full h-[500px] sm:h-[600px] md:h-[700px]">
+            <Image
                 src="/images/cover.png"
                 alt="Libro de Horas cover"
-                className="w-full h-[500px] sm:h-[600px] md:h-[700px] object-cover opacity-35"
-                />
+                fill
+                className="object-cover opacity-35"
+                priority
+            />
 
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
                 <h2 className="text-[#E3D9D1] text-3xl md:text-5xl font-serif drop-shadow-lg mb-2">
                     About the Project
                 </h2>
-                </div>
             </div>
+        </div>
 
         {/* Main Text Content */}
         <div className="bg-[#C3C2B6] p-4 sm:p-6 md:p-10 text-gray-800 space-y-10">

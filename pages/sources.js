@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { client } from '../lib/sanity'
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Sources() {
     const [sources, setSources] = useState([])
@@ -68,11 +69,13 @@ export default function Sources() {
             )}
         </header>
 
-        <div className="relative -mt-40 z-0">
-            <img
-            src="/images/cover.png"
-            alt="Libro de Horas cover"
-            className="w-full h-[500px] sm:h-[600px] md:h-[700px] object-cover opacity-35"
+        <div className="relative -mt-40 z-0 w-full h-[500px] sm:h-[600px] md:h-[700px]">
+            <Image
+                src="/images/cover.png"
+                alt="Libro de Horas cover"
+                fill
+                className="object-cover opacity-35"
+                priority
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
             <h2 className="text-[#E3D9D1] text-3xl md:text-5xl font-serif drop-shadow-lg mb-2">

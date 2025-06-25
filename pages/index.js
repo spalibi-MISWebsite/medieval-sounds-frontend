@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -58,12 +59,15 @@ export default function Home() {
 
 
       {/* Cover Image */}
-      <div className="relative -mt-40 z-0">
-        <img
+      <div className="relative -mt-40 z-0 w-full h-[500px] sm:h-[600px] md:h-[700px]">
+        <Image
           src="/images/cover.png"
           alt="Libro de Horas cover"
-          className="w-full h-[500px] sm:h-[600px] md:h-[700px] object-cover opacity-35"
+          fill
+          className="object-cover opacity-35"
+          priority
         />
+
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <h2 className="text-[#E3D9D1] text-2xl sm:text-4xl md:text-5xl font-serif drop-shadow-lg mb-2">
             Medieval Iberian Sounds
@@ -102,21 +106,37 @@ export default function Home() {
 
       {/* Featured Section */}
       <section className="relative py-10 px-4 sm:px-6 lg:px-12">
-        <img
-          src="/images/back-panel.png"
-          alt="Flowering vine"
-          className="absolute inset-0 w-full h-full object-cover opacity-25 z-0"
-        />
+        <div className="relative w-full h-full">
+          <Image
+            src="/images/back-panel.png"
+            alt="Flowering vine"
+            fill
+            className="object-cover opacity-25 z-0"
+            quality={75}
+          />
+        </div>
 
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
           {/* Featured Sound */}
           <div className="bg-[#1A0A02]/70 text-[#E3D9D1] p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
             <p className="font-serif text-2xl md:text-3xl mb-6">Featured Sound</p>
             <div className="rounded-full border-4 border-[#E3D9D1] w-40 h-40 mb-6 overflow-hidden">
-              <img src="/images/bird.png" alt="Crow" className="w-full h-full object-cover" />
+              <Image
+                src="/images/bird.png"
+                alt="Crow"
+                width={160}
+                height={160}
+                className="object-cover rounded-full border-4 border-[#E3D9D1]"
+              />
             </div>
             <p className="font-serif text-xl mb-4">Corneja / Crow</p>
-            <img src="/images/audio-bar.png" alt="Audio waveform" className="mx-auto w-56 mb-6" />
+            <Image
+              src="/images/audio-bar.png"
+              alt="Audio waveform"
+              width={224}
+              height={40}
+              className="mx-auto mb-6"
+            />
             <Link
               href="/sounds"
               className="bg-[#765B33] hover:bg-[#B59F79] transition-colors duration-200 rounded px-6 py-3 font-mono text-sm text-[#E1DBD2]"
@@ -128,11 +148,14 @@ export default function Home() {
           {/* Featured Text */}
           <div className="bg-[#1A0A02]/70 text-[#E3D9D1] p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
             <p className="font-serif text-2xl md:text-3xl mb-6">Featured Text</p>
-            <img
+            <Image
               src="/images/cover.png"
               alt="Book cover"
-              className="w-40 h-60 object-cover shadow-md mb-6"
+              width={160}
+              height={240}
+              className="object-cover shadow-md"
             />
+
             <p className="font-serif text-xl mb-6">
               Libro de horas, según el uso de Roma<br />
               <span className="text-lg">1401–1500</span>

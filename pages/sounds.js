@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react'
 import { client } from '../lib/sanity'
 import SoundCard from '../components/soundCard'
+import Image from 'next/image';
 import Link from 'next/link';
 
-        console.log('Sanity projectId:', process.env.NEXT_PUBLIC_SANITY_PROJECT_ID);
-        console.log('Sanity dataset:', process.env.NEXT_PUBLIC_SANITY_DATASET);
-        
 export default function Sounds() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [sounds, setSounds] = useState([])
@@ -95,11 +93,13 @@ return (
         )}
       </header>
         
-        <div className="relative -mt-40 z-0">
-            <img
-            src="/images/cover.png"
-            alt="Libro de Horas cover"
-            className="w-full h-[500px] sm:h-[600px] md:h-[700px] object-cover opacity-35"
+        <div className="relative -mt-40 z-0 w-full h-[500px] sm:h-[600px] md:h-[700px]">
+            <Image
+                src="/images/cover.png"
+                alt="Libro de Horas cover"
+                fill
+                className="object-cover opacity-35"
+                priority
             />
 
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
