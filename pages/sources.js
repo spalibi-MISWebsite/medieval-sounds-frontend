@@ -1,0 +1,150 @@
+import { useEffect, useState } from 'react'
+import { client } from '../lib/sanity'
+
+export default function Sources() {
+    const [sources, setSources] = useState([])
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    useEffect(() => {
+        client.fetch(`*[_type == "source"]{
+        link,
+        siteTitle
+        }`).then((data) => {
+        console.log('Fetched:', data)
+        setSources(data)
+        })
+    }, [])
+
+    return (
+        <>
+        {/* Header */}
+        <header className="bg-[#1A0A02] text-[#E3D9D1] h-20 sticky top-0 z-50">
+            <div className="flex items-center justify-between px-4 sm:px-6 lg:px-12 py-6">
+            <a href="/" className="text-xl font-bold font-serif">
+                Medieval Iberian Sounds
+            </a>
+
+            {/* Hamburger */}
+            <button
+                className="sm:hidden focus:outline-none"
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label="Toggle navigation"
+            >
+                <svg
+                className="w-6 h-6 text-[#E3D9D1]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                >
+                {menuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                )}
+                </svg>
+            </button>
+
+            {/* Navigation Links (desktop) */}
+            <ul className="hidden sm:flex space-x-6 text-sm tracking-widest uppercase font-mono">
+                <li><a href="/" className="hover:underline">Home</a></li>
+                <li><a href="/about" className="hover:underline">About</a></li>
+                <li><a href="/sounds" className="hover:underline">Sounds</a></li>
+                <li><a href="/texts" className="hover:underline">Texts</a></li>
+                <li><a href="/sources" className="font-bold hover:underline">Sources</a></li>
+            </ul>
+            </div>
+
+            {/* Navigation Links (hamburger) */}
+            {menuOpen && (
+            <ul className="sm:hidden flex flex-col items-center space-y-4 pb-4 bg-[#1A0A02] text-sm tracking-widest uppercase font-mono">
+                <li><a href="/" className="hover:underline">Home</a></li>
+                <li><a href="/about" className="hover:underline">About</a></li>
+                <li><a href="/sounds" className="hover:underline">Sounds</a></li>
+                <li><a href="/texts" className="hover:underline">Texts</a></li>
+                <li><a href="/sources" className="font-bold hover:underline">Sources</a></li>
+            </ul>
+            )}
+        </header>
+
+        <div className="relative -mt-40 z-0">
+            <img
+            src="/images/cover.png"
+            alt="Libro de Horas cover"
+            className="w-full h-[500px] sm:h-[600px] md:h-[700px] object-cover opacity-35"
+            />
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+            <h2 className="text-[#E3D9D1] text-3xl md:text-5xl font-serif drop-shadow-lg mb-2">
+                Sources and Contributers
+            </h2>
+            </div>
+        </div>
+    
+        <div className="p-10 h-auto bg-[#E3D9D1]">
+            <p className="text-xl text-gray-800 p-8">
+            The content on this site is sourced from the following sources as well as personal sound recordings:
+            </p>
+            
+            <ul className="px-20 space-y-4 list-disc text-lg text-[#1A0A02]">
+            {sources.map((source, idx) => (
+                <li key={idx}>
+                    <a href={source.link} target="_blank" rel="noopener noreferrer" className="underline hover:text-[#3B0A0A]">
+                        {source.siteTitle}
+                    </a>
+                </li>
+            ))}
+            </ul>
+        </div>
+
+        {/* Student Contributors Section */}
+        <section className="relative bg-[#464B2C]/25 py-10 px-4 sm:px-6 lg:px-12">
+            <div className="relative z-10 max-w-6xl mx-auto">
+                <h2 className="text-3xl text-center font-serif text-[#E3D9D1] mb-10">Student Contributors</h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                {/* Student Researchers */}
+                <div className="bg-[#464B2C]/60 text-[#E3D9D1] p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
+                    <h3 className="text-2xl font-bold font-serif mb-4">Research</h3>
+                    <ul className="space-y-2 text-base font-mono">
+                        <li>Jack Brown</li>
+                        <li>María Camila Castro Maldonado</li>
+                        <li>Rocío Corral García</li>
+                        <li>Juan Harari</li>
+                        <li>Montse Li</li>
+                        <li>Sara Stamatiades</li>
+                        <li>Nicholas Lorenzo Vega</li>
+                    </ul>
+                </div>
+
+                {/* Web Developers */}
+                <div className="bg-[#464B2C]/70 text-[#E3D9D1] p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
+                    <h3 className="text-2xl font-bold font-serif mb-4">Web Design</h3>
+                    <ul className="space-y-2 text-base font-mono">
+                        <li>Jesse Cheng</li>
+                        <li>Melanie Jalbert</li>
+                        <li>Jessica Rose Ritchie</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </section>
+
+
+        <footer className="bg-[#1A0A02] text-[#E3D9D1] px-10 py-8">
+            <div className="flex flex-col md:flex-row justify-between items-center md:items-start max-w-7xl mx-auto">
+            <div className="text-center md:text-left mb-6 md:mb-0">
+                <h2 className="text-xl md:text-3xl font-serif mb-1">Medieval Iberian Sound</h2>
+                <p className="text-sm md:text-base font-light tracking-wide">A Digital Humanities Project</p>
+            </div>
+            <ul className="flex space-x-10 text-sm tracking-widest uppercase font-mono">
+                <li><a href="/" className="hover:underline">Home</a></li>
+                <li><a href="/about" className="hover:underline">About</a></li>
+                <li><a href="/sounds" className="hover:underline">Sounds</a></li>
+                <li><a href="/texts" className="hover:underline">Texts</a></li>
+                <li><a href="/sources" className="hover:underline">Sources</a></li>
+            </ul>
+            </div>
+        </footer>
+        </>
+    )
+}

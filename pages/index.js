@@ -1,115 +1,169 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { useState } from 'react';
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
-    >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              pages/index.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+    <>
+      {/* Header */}
+      <header className="bg-[#1A0A02] text-[#E3D9D1] h-20 sticky top-0 z-50">
+        <div className="flex items-center justify-between px-4 sm:px-6 lg:px-12 py-6">
+          <a href="/" className="text-xl font-bold font-serif">
+            Medieval Iberian Sounds
           </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+          {/* Hamburger */}
+          <button
+            className="sm:hidden focus:outline-none"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle navigation"
           >
-            Read our docs
-          </a>
+            <svg
+              className="w-6 h-6 text-[#E3D9D1]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {menuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+
+          {/* Navigation Links (desktop) */}
+          <ul className="hidden sm:flex space-x-6 text-sm tracking-widest uppercase font-mono">
+            <li><a href="/" className="font-bold hover:underline">Home</a></li>
+            <li><a href="/about" className="hover:underline">About</a></li>
+            <li><a href="/sounds" className="hover:underline">Sounds</a></li>
+            <li><a href="/texts" className="hover:underline">Texts</a></li>
+            <li><a href="/sources" className="hover:underline">Sources</a></li>
+          </ul>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+        {/* Navigation Links (mobile dropdown) */}
+        {menuOpen && (
+          <ul className="sm:hidden flex flex-col items-center space-y-4 pb-4 bg-[#1A0A02] text-sm tracking-widest uppercase font-mono">
+            <li><a href="/" className="font-bold hover:underline">Home</a></li>
+            <li><a href="/about" className="hover:underline">About</a></li>
+            <li><a href="/sounds" className="hover:underline">Sounds</a></li>
+            <li><a href="/texts" className="hover:underline">Texts</a></li>
+            <li><a href="/sources" className="hover:underline">Sources</a></li>
+          </ul>
+        )}
+      </header>
+
+
+      {/* Cover Image */}
+      <div className="relative -mt-40 z-0">
+        <img
+          src="/images/cover.png"
+          alt="Libro de Horas cover"
+          className="w-full h-[500px] sm:h-[600px] md:h-[700px] object-cover opacity-35"
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+          <h2 className="text-[#E3D9D1] text-2xl sm:text-4xl md:text-5xl font-serif drop-shadow-lg mb-2">
+            Medieval Iberian Sounds
+          </h2>
+          <p className="text-[#E3D9D1] text-sm sm:text-base md:text-lg drop-shadow">
+            A DIGITAL HUMANITIES PROJECT
+          </p>
+        </div>
+      </div>
+
+      {/* Introduction Section */}
+      <section className="bg-[#E3D9D1] px-4 sm:px-6 lg:px-12 py-12">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+          <div className="text-sm sm:text-base leading-relaxed tracking-wide text-[#1A0A02]">
+            <h2 className="text-xl font-bold font-serif mb-4">Brief Introduction and Project Overview</h2>
+            <p className="font-serif">
+              This site, part of my ongoing research project, aims to provide both a research repository for different 
+              approximations to an archive that has been effectively lost, and also to serve as a frame of reference for 
+              the imagination in a variety of pedagogical settings. While there has been a lot of interest regarding the 
+              history of the different technologies that transmit, record, and preserve sound, these archives have tended to 
+              document mostly a modern idea of sound, especially from the 19th century onward. Earlier periods have to contend 
+              with the absence of a contemporary record of these sounds except for the textual references to them. Among these, 
+              literary language is a particularly creative and rich site for the transcription and translation of sound. Using 
+              medieval Iberian literary texts as pretexts, this site brings together fragments of works that demand a sonic 
+              literacy from the audience, supplemented with sound files that are themselves approximations, reimaginings of 
+              medieval sound attempting to bridge the gap between our present loss and a fictional archive.
+            </p>
+            <div className="mt-6 flex justify-center md:justify-start">
+              <a href="/about" className="w-full sm:w-auto bg-[#151A2F] hover:bg-[#2B3153] transition-colors duration-200 rounded px-6 py-3 font-mono text-sm text-[#E3D9D1] text-center">
+                LEARN MORE
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Section */}
+      <section className="relative py-10 px-4 sm:px-6 lg:px-12">
+        <img
+          src="/images/back-panel.png"
+          alt="Flowering vine"
+          className="absolute inset-0 w-full h-full object-cover opacity-25 z-0"
+        />
+
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+          {/* Featured Sound */}
+          <div className="bg-[#1A0A02]/70 text-[#E3D9D1] p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
+            <p className="font-serif text-2xl md:text-3xl mb-6">Featured Sound</p>
+            <div className="rounded-full border-4 border-[#E3D9D1] w-40 h-40 mb-6 overflow-hidden">
+              <img src="/images/bird.png" alt="Crow" className="w-full h-full object-cover" />
+            </div>
+            <p className="font-serif text-xl mb-4">Corneja / Crow</p>
+            <img src="/images/audio-bar.png" alt="Audio waveform" className="mx-auto w-56 mb-6" />
+            <a
+              href="/sounds"
+              className="bg-[#765B33] hover:bg-[#B59F79] transition-colors duration-200 rounded px-6 py-3 font-mono text-sm text-[#E1DBD2]"
+            >
+              EXPLORE ALL SOUNDS
+            </a>
+          </div>
+
+          {/* Featured Text */}
+          <div className="bg-[#1A0A02]/70 text-[#E3D9D1] p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
+            <p className="font-serif text-2xl md:text-3xl mb-6">Featured Text</p>
+            <img
+              src="/images/cover.png"
+              alt="Book cover"
+              className="w-40 h-60 object-cover shadow-md mb-6"
+            />
+            <p className="font-serif text-xl mb-6">
+              Libro de horas, según el uso de Roma<br />
+              <span className="text-lg">1401–1500</span>
+            </p>
+            <a
+              href="/texts"
+              className="bg-[#765B33] hover:bg-[#B59F79] transition-colors duration-200 rounded px-6 py-3 font-mono text-sm text-[#E1DBD2]"
+            >
+              EXPLORE ALL TEXTS
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#1A0A02] text-[#E3D9D1] px-6 sm:px-10 py-8">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-6">
+          <div className="text-center md:text-left">
+            <h2 className="text-xl md:text-3xl font-serif mb-1">Medieval Iberian Sound</h2>
+            <p className="text-sm md:text-base font-light tracking-wide">
+              A Digital Humanities Project
+            </p>
+          </div>
+          <ul className="flex flex-wrap justify-center md:justify-end space-x-6 text-sm tracking-widest uppercase font-mono">
+            <li><a href="/" className="hover:underline">Home</a></li>
+            <li><a href="/about" className="hover:underline">About</a></li>
+            <li><a href="/sounds" className="hover:underline">Sounds</a></li>
+            <li><a href="/texts" className="hover:underline">Texts</a></li>
+            <li><a href="/sources" className="hover:underline">Sources</a></li>
+          </ul>
+        </div>
       </footer>
-    </div>
+    </>
   );
 }
