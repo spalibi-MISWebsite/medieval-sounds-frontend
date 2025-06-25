@@ -148,13 +148,15 @@ export default function Home() {
           {/* Featured Text */}
           <div className="bg-[#1A0A02]/70 text-[#E3D9D1] p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
             <p className="font-serif text-2xl md:text-3xl mb-6">Featured Text</p>
-            <Image
-              src="/images/cover.png"
-              alt="Book cover"
-              width={160}
-              height={240}
-              className="object-cover shadow-md"
-            />
+            <div className="w-40 h-60 mb-6">
+              <Image
+                src="/images/cover.png"
+                alt="Book cover"
+                width={160}
+                height={240}
+                className="object-cover w-full h-full shadow-md"
+              />
+            </div>
 
             <p className="font-serif text-xl mb-6">
               Libro de horas, según el uso de Roma<br />
