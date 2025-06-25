@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from 'next/image';
 
 export default function SoundCard({ allSounds }) {
   const [selectedSound, setSelectedSound] = useState(null);
@@ -13,10 +14,14 @@ export default function SoundCard({ allSounds }) {
           >
             {/* Image */}
             {sound.imageUrl && (
-              <img
+              <Image
                 src={sound.imageUrl}
                 alt={sound.title}
-                className="w-full h-full object-cover transition duration-300 group-hover:opacity-60"
+                width={300}
+                height={200}
+                className="rounded object-cover"
+                quality={75}
+                loading="lazy"
               />
             )}
 
@@ -58,10 +63,14 @@ export default function SoundCard({ allSounds }) {
 
             {/* Image and Info */}
             <div className="flex flex-col items-center">
-              <img
+              <Image
                 src={selectedSound.imageUrl}
                 alt={selectedSound.title}
-                className="w-32 h-32 object-cover rounded-full border-4 border-[#3B0A0A]"
+                width={300}
+                height={200}
+                className="rounded object-cover"
+                quality={75}
+                loading="lazy"
               />
               <h3 className="mt-4 font-serif text-xl text-center">
                 {selectedSound.title}

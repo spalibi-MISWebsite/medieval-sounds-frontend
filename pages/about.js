@@ -89,8 +89,14 @@ export default function About() {
                 are left to “imagine” without having recourse to an archive.        
             </p>
 
-            <img src="/images/divider.png" alt="flowering vine" className="w-full" />
-
+            <Image
+                src="/images/divider.png"
+                alt="Flowering vine"
+                width={1200}
+                height={60}
+                className="w-full h-auto"
+                quality={75}
+            />
             <p className="text-base sm:text-lg md:text-xl leading-relaxed">
                 This site, part of my ongoing research project, aims to provide both a research repository for different 
                 approximations to an archive that has been effectively lost; and also to serve as a frame of reference for the
@@ -103,8 +109,14 @@ export default function About() {
                 produced a rich set of cultures with productive contrasts at all levels --including sound.
             </p>
 
-            <img src="/images/divider.png" alt="flowering vine" className="w-full" />
-
+            <Image
+                src="/images/divider.png"
+                alt="Flowering vine"
+                width={1200}
+                height={60}
+                className="w-full h-auto"
+                quality={75}
+            />
             <p className="text-base sm:text-lg md:text-xl leading-relaxed">
                 As the only contemporary record of sound available to us from eras in which there was no other recording 
                 technology available, written language --and literary language as a particularly creative and rich site for 
@@ -130,13 +142,17 @@ export default function About() {
                 
                 {/* Image + Name + Email */}
                 <div className="flex flex-col items-center md:items-start w-full md:w-1/3">
-                <img
-                    src="/images/headshot.jpg"
-                    alt="Simone Pinet's headshot"
-                    className="w-60 h-60 object-cover rounded-full"
-                />
-                <h3 className="mt-6 text-xl md:text-2xl font-semibold tracking-wide">Prof. Simone Pinet</h3>
-                <p className="text-sm md:text-base mt-2">sp349@cornell.edu</p>
+                    <Image
+                        src="/images/headshot.jpg"
+                        alt="Simone Pinet's headshot"
+                        width={240}
+                        height={240}
+                        className="object-cover rounded-full"
+                        quality={80}
+                    />
+
+                    <h3 className="mt-6 text-xl md:text-2xl font-semibold tracking-wide">Prof. Simone Pinet</h3>
+                    <p className="text-sm md:text-base mt-2">sp349@cornell.edu</p>
                 </div>
 
                 {/* Description Text */}
