@@ -78,7 +78,7 @@ export default function Texts() {
                     src="/images/cover.png"
                     alt="Libro de Horas cover"
                     fill
-                    className="object-cover opacity-80"
+                    className="object-cover opacity-90"
                     priority
                 />
 

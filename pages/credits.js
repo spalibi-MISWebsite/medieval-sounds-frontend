@@ -101,7 +101,7 @@ export default function Credits() {
                     src="/images/cover.png"
                     alt="Libro de Horas cover"
                     fill
-                    className="object-cover opacity-80"
+                    className="object-cover opacity-90"
                     priority
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center">

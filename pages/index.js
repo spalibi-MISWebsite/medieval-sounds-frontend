@@ -8,7 +8,10 @@ export default function Home() {
   return (
     <>
       {/* Header */}
-      <header className="bg-[#1A0A02] text-[#E3D9D1] h-20 sticky top-0 z-50">
+      <header
+        className="text-[#E3D9D1] h-20 sticky top-0 z-50"
+        style={{ backgroundColor: 'rgba(93, 74, 79, 0.75)' }}
+      >        
         <div className="flex items-center justify-between px-4 sm:px-6 lg:px-12 py-6">
           <Link href="/" className="text-xl font-bold font-serif">
             Medieval Iberian Sound
@@ -64,7 +67,7 @@ export default function Home() {
           src="/images/cover.png"
           alt="Libro de Horas cover"
           fill
-          className="object-cover opacity-80"
+          className="object-cover opacity-90"
           priority
         />
 
@@ -108,17 +111,19 @@ export default function Home() {
 
       {/* Featured Section */}
       <section className="relative py-10 px-4 sm:px-6 lg:px-12">
-        <div className="relative w-full h-full">
+        {/* Background image */}
+        <div className="absolute inset-0 w-full h-full z-0">
           <Image
             src="/images/back-panel.png"
             alt="Flowering vine"
             fill
-            className="object-cover opacity-25 z-0"
+            className="object-cover opacity-50"
             quality={75}
           />
         </div>
 
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+        {/* Content */}
+        <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Featured Sound */}
           <div className="bg-[#1A0A02]/70 text-[#E3D9D1] p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
             <p className="font-serif text-2xl md:text-3xl mb-6">Featured Sound</p>
@@ -128,7 +133,7 @@ export default function Home() {
                 alt="Crow"
                 width={160}
                 height={160}
-                className="object-cover rounded-full border-4 border-[#E3D9D1]"
+                className="object-cover rounded-full"
               />
             </div>
             <p className="font-serif text-xl mb-4">Corneja / Crow</p>
@@ -160,7 +165,6 @@ export default function Home() {
                 className="object-cover w-full h-full shadow-md"
               />
             </div>
-
             <p className="font-serif text-xl mb-6">
               Libro de horas, según el uso de Roma<br />
               <span className="text-lg">1401–1500</span>
@@ -175,8 +179,9 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* Footer */}
-      <footer className="bg-[#1A0A02] text-[#E3D9D1] px-10 py-8">
+      <footer className="bg-[#5D4A4F] text-[#E3D9D1] px-10 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start max-w-7xl mx-auto">
           <div className="text-center md:text-left mb-6 md:mb-0">
             <h2 className="text-xl md:text-3xl font-serif mb-1">Medieval Iberian Sound</h2>
