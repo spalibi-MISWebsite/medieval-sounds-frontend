@@ -10,7 +10,7 @@ export default function Home() {
       {/* Header */}
       <header
         className="text-[#E3D9D1] h-20 sticky top-0 z-50"
-        style={{ backgroundColor: 'rgba(93, 74, 79, 0.75)' }}
+        style={{ backgroundColor: 'rgba(93, 74, 79, 1)' }}
       >        
         <div className="flex items-center justify-between px-4 sm:px-6 lg:px-12 py-6">
           <Link href="/" className="text-xl font-bold font-serif">

@@ -8,7 +8,7 @@ export default function About() {
   return (
     <>
         {/* Header */}
-        <header className="bg-[#1A0A02] text-[#E3D9D1] h-20 sticky top-0 z-50">
+        <header className="bg-[#BAA393] text-[#30251d] h-20 sticky top-0 z-50">
             <div className="flex items-center justify-between px-4 sm:px-6 lg:px-12 py-6">
             <Link href="/" className="text-xl font-bold font-serif">
                 Medieval Iberian Sound
@@ -75,7 +75,7 @@ export default function About() {
         </div>
 
         {/* Main Text Content */}
-        <div className="bg-[#C3C2B6] p-4 sm:p-6 md:p-10 text-gray-800 space-y-10 font-serif">
+        <div className="bg-[#EDE0CF] p-4 sm:p-6 md:p-10 text-gray-800 space-y-10 font-serif">
             <p className="text-base sm:text-lg md:text-xl leading-relaxed">
                 Sound studies have been growing exponentially in recent years, creating exciting new collaborations between 
                 artists and sound engineers, between historians of science and musicologists. While there has been a lot of  
@@ -129,7 +129,7 @@ export default function About() {
         </div>
 
         {/* Author Section */}
-        <section className="w-full bg-[#464B2C]/25 text-[#E3D9D1] px-6 py-20">
+        <section className="w-full bg-[#BF6E46]/25 text-[#E3D9D1] px-6 py-20">
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start md:gap-20 text-center md:text-left">
                 
                 {/* Image + Name + Email */}
@@ -169,7 +169,7 @@ export default function About() {
         </section>
 
         {/* Footer */}
-        <footer className="bg-[#1A0A02] text-[#E3D9D1] px-10 py-8">
+        <footer className="bg-[#BAA393] text-[#30251d] px-10 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start max-w-7xl mx-auto">
             <div className="text-center md:text-left mb-6 md:mb-0">
             <h2 className="text-xl md:text-3xl font-serif mb-1">Medieval Iberian Sound</h2>
