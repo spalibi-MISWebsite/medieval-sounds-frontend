@@ -1,8 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from 'next/image';
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => setIsMobile(window.innerWidth < 640);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  return isMobile;
+}
 
 export default function SoundCard({ allSounds }) {
   const [selectedSound, setSelectedSound] = useState(null);
+  const isMobile = useIsMobile();
 
   return (
     <>
@@ -11,6 +25,7 @@ export default function SoundCard({ allSounds }) {
           <div
             key={idx}
             className="relative w-[250px] h-[300px] overflow-hidden rounded-xl shadow-lg group cursor-pointer"
+            onClick={() => isMobile && setSelectedSound(sound)} // Mobile: open modal on card click
           >
             {/* Image */}
             {sound.imageUrl && (
@@ -19,28 +34,33 @@ export default function SoundCard({ allSounds }) {
                 alt={sound.title}
                 width={300}
                 height={200}
-                className="rounded object-cover"
+                className="rounded object-cover w-full h-full"
                 quality={75}
                 loading="lazy"
               />
             )}
 
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-transparent opacity-0 
-            group-hover:opacity-100 transition duration-300 flex flex-col justify-start items-center p-4 space-y-4">
-              {sound.audioUrl && (
-                <audio controls className="w-11/12">
-                  <source src={sound.audioUrl} type="audio/mpeg" />
-                  Your browser does not support the audio element.
-                </audio>
-              )}
-              <button
-                onClick={() => setSelectedSound(sound)}
-                className="mt-2 bg-[#E3D9D1] text-black font-serif font-medium px-4 py-2 rounded hover:bg-[#d5ccc4] transition"
-              >
-                Read More
-              </button>
-            </div>
+            {/* Hover Overlay for Desktop */}
+            {!isMobile && (
+              <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-transparent opacity-0 
+              group-hover:opacity-100 transition duration-300 flex flex-col justify-start items-center p-4 space-y-4">
+                {sound.audioUrl && (
+                  <audio controls className="w-11/12">
+                    <source src={sound.audioUrl} type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                  </audio>
+                )}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation(); // prevent bubbling up
+                    setSelectedSound(sound);
+                  }}
+                  className="mt-2 bg-[#E3D9D1] text-black font-serif font-medium px-4 py-2 rounded hover:bg-[#d5ccc4] transition"
+                >
+                  Read More
+                </button>
+              </div>
+            )}
 
             {/* Title */}
             <div className="absolute bottom-0 w-full bg-white bg-opacity-90 text-black text-center py-2 font-serif text-lg">
@@ -53,7 +73,7 @@ export default function SoundCard({ allSounds }) {
       {/* Modal */}
       {selectedSound && (
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center">
-          <div className="bg-[#E3D9D1] text-black rounded-lg w-[600px] max-w-full p-8 relative shadow-xl flex gap-6">
+          <div className="bg-[#E3D9D1] text-black rounded-lg w-[600px] max-w-full p-8 relative shadow-xl flex flex-col lg:flex-row gap-6">
             {/* Close Button */}
             <button
               onClick={() => setSelectedSound(null)}

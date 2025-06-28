@@ -98,7 +98,7 @@ return (
                 src="/images/cover.png"
                 alt="Libro de Horas cover"
                 fill
-                className="object-cover opacity-35"
+                className="object-cover opacity-80"
                 priority
             />
 
@@ -158,8 +158,11 @@ return (
           <div className="flex flex-col md:flex-row justify-between items-center md:items-start max-w-7xl mx-auto">
             <div className="text-center md:text-left mb-6 md:mb-0">
               <h2 className="text-xl md:text-3xl font-serif mb-1">Medieval Iberian Sound</h2>
-                <p className="text-sm md:text-base font-light tracking-wide font-serif">A Digital Humanities Project</p>
+              <p className="text-sm md:text-base font-light tracking-wide font-serif">A Digital Humanities Project</p>
             </div>
+
+            {/* Hide nav on small screens */}
+            <div className="hidden sm:flex">
               <ul className="flex space-x-10 text-sm tracking-widest uppercase font-serif">
                 <li><Link href="/" className="hover:underline">Home</Link></li>
                 <li><Link href="/about" className="hover:underline">About</Link></li>
@@ -168,6 +171,7 @@ return (
                 <li><Link href="/credits" className="hover:underline">Credits</Link></li>
               </ul>
             </div>
+          </div>
         </footer>
     </>
   );

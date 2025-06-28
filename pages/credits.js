@@ -6,16 +6,43 @@ import Image from 'next/image';
 export default function Credits() {
     const [sources, setSources] = useState([])
     const [menuOpen, setMenuOpen] = useState(false);
+    const [openSections, setOpenSections] = useState({
+        textSource: false,
+        soundSource: false,
+        imageSource: false,
+    });
 
     useEffect(() => {
         client.fetch(`*[_type == "source"]{
         link,
-        siteTitle
+        siteTitle,
+        category
         }`).then((data) => {
         console.log('Fetched:', data)
         setSources(data)
         })
     }, [])
+
+    const grouped = {
+        textSource: sources.filter((s) => s.category === 'textSource'),
+        soundSource: sources.filter((s) => s.category === 'soundSource'),
+        imageSource: sources.filter((s) => s.category === 'imageSource'),
+    };
+
+
+    const toggleSection = (section) => {
+        setOpenSections((prev) => ({
+        ...prev,
+        [section]: !prev[section],
+        }));
+    };
+
+    const sectionTitleMap = {
+        textSource: 'Text Sources',
+        soundSource: 'Sound Sources',
+        imageSource: 'Image Sources',
+    };
+
 
     return (
         <>
@@ -74,7 +101,7 @@ export default function Credits() {
                     src="/images/cover.png"
                     alt="Libro de Horas cover"
                     fill
-                    className="object-cover opacity-35"
+                    className="object-cover opacity-80"
                     priority
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
@@ -84,24 +111,48 @@ export default function Credits() {
                 </div>
             </div>
         
+            {/* Intro */}
             <div className="p-10 h-auto bg-[#E3D9D1] font-serif">
                 <p className="text-xl text-gray-800 p-8">
-                The content on this site links texts to sound files, using images from a variety of manuscripts. The modern 
-                editions of the texts used are credited below. For the sound files, we have used the databases listed below, 
-                in addition to our own recordings or properly credited ones, which can be found here as well. Manuscript 
+                The content on this site links texts to sound files, using images from a variety of manuscripts. The modern
+                editions of the texts used are credited below. For the sound files, we have used the databases listed below,
+                in addition to our own recordings or properly credited ones, which can be found here as well. Manuscript
                 images are from digital libraries, as noted.
                 </p>
-                
-                <ul className="px-20 space-y-4 list-disc text-lg text-[#1A0A02]">
-                {sources.map((source, idx) => (
-                    <li key={idx}>
-                        <Link href={source.link} target="_blank" rel="noopener noreferrer" className="underline hover:text-[#3B0A0A]">
-                            {source.siteTitle}
-                        </Link>
-                    </li>
+
+                {/* Dropdown Sections */}
+                {['textSource', 'soundSource', 'imageSource'].map((key) => (
+                <div key={key} className="mb-6">
+                    <button
+                    onClick={() => toggleSection(key)}
+                    className="w-full text-left text-2xl font-bold mb-2 px-4 py-2 bg-[#3B0A0A] text-[#E3D9D1] rounded hover:bg-[#4f1d1d] transition"
+                    >
+                    {sectionTitleMap[key]}
+                    </button>
+                    {openSections[key] && (
+                    <ul className="px-8 py-4 space-y-2 text-lg list-disc text-[#1A0A02] bg-[#f1ebe6] rounded">
+                        {grouped[key].length > 0 ? (
+                        grouped[key].map((source, idx) => (
+                            <li key={idx}>
+                            <Link
+                                href={source.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="underline hover:text-[#3B0A0A]"
+                            >
+                                {source.siteTitle}
+                            </Link>
+                            </li>
+                        ))
+                        ) : (
+                        <li className="italic text-base">No sources listed.</li>
+                        )}
+                    </ul>
+                    )}
+                </div>
                 ))}
-                </ul>
             </div>
+
 
             {/* Student Contributors Section */}
             <section className="relative bg-[#464B2C]/25 py-10 px-4 sm:px-6 lg:px-12">
@@ -138,19 +189,23 @@ export default function Credits() {
 
             {/* Footer */}
             <footer className="bg-[#1A0A02] text-[#E3D9D1] px-10 py-8">
-                <div className="flex flex-col md:flex-row justify-between items-center md:items-start max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row justify-between items-center md:items-start max-w-7xl mx-auto">
                 <div className="text-center md:text-left mb-6 md:mb-0">
-                    <h2 className="text-xl md:text-3xl font-serif mb-1">Medieval Iberian Sound</h2>
-                    <p className="text-sm md:text-base font-light tracking-wide font-serif">A Digital Humanities Project</p>
+                <h2 className="text-xl md:text-3xl font-serif mb-1">Medieval Iberian Sound</h2>
+                <p className="text-sm md:text-base font-light tracking-wide font-serif">A Digital Humanities Project</p>
                 </div>
-                    <ul className="flex space-x-10 text-sm tracking-widest uppercase font-serif">
+
+                {/* Hide nav on small screens */}
+                <div className="hidden sm:flex">
+                <ul className="flex space-x-10 text-sm tracking-widest uppercase font-serif">
                     <li><Link href="/" className="hover:underline">Home</Link></li>
                     <li><Link href="/about" className="hover:underline">About</Link></li>
                     <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
                     <li><Link href="/texts" className="hover:underline">Texts</Link></li>
                     <li><Link href="/credits" className="hover:underline">Credits</Link></li>
-                    </ul>
+                </ul>
                 </div>
+            </div>
             </footer>
         </>
     )
