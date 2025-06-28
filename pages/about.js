@@ -11,7 +11,7 @@ export default function About() {
         <header className="bg-[#1A0A02] text-[#E3D9D1] h-20 sticky top-0 z-50">
             <div className="flex items-center justify-between px-4 sm:px-6 lg:px-12 py-6">
             <Link href="/" className="text-xl font-bold font-serif">
-                Medieval Iberian Sounds
+                Medieval Iberian Sound
             </Link>
 
             {/* Hamburger */}
@@ -36,23 +36,23 @@ export default function About() {
             </button>
 
             {/* Navigation Links (desktop) */}
-            <ul className="hidden sm:flex space-x-6 text-sm tracking-widest uppercase font-mono">
+            <ul className="hidden sm:flex space-x-6 text-sm tracking-widest uppercase font-serif">
                 <li><Link href="/" className="hover:underline">Home</Link></li>
                 <li><Link href="/about" className="font-bold hover:underline">About</Link></li>
                 <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
                 <li><Link href="/texts" className="hover:underline">Texts</Link></li>
-                <li><Link href="/sources" className="hover:underline">Sources</Link></li>
+                <li><Link href="/credits" className="hover:underline">Credits</Link></li>
             </ul>
             </div>
 
             {/* Navigation Links (mobile dropdown) */}
             {menuOpen && (
-            <ul className="sm:hidden flex flex-col items-center space-y-4 pb-4 bg-[#1A0A02] text-sm tracking-widest uppercase font-mono">
+            <ul className="sm:hidden flex flex-col items-center space-y-4 pb-4 bg-[#1A0A02] text-sm tracking-widest uppercase font-serif">
                 <li><Link href="/" className="hover:underline">Home</Link></li>
                 <li><Link href="/about" className="font-bold hover:underline">About</Link></li>
                 <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
                 <li><Link href="/texts" className="hover:underline">Texts</Link></li>
-                <li><Link href="/sources" className="hover:underline">Sources</Link></li>
+                <li><Link href="/credits" className="hover:underline">Credits</Link></li>
             </ul>
             )}
         </header>
@@ -75,7 +75,7 @@ export default function About() {
         </div>
 
         {/* Main Text Content */}
-        <div className="bg-[#C3C2B6] p-4 sm:p-6 md:p-10 text-gray-800 space-y-10">
+        <div className="bg-[#C3C2B6] p-4 sm:p-6 md:p-10 text-gray-800 space-y-10 font-serif">
             <p className="text-base sm:text-lg md:text-xl leading-relaxed">
                 Sound studies have been growing exponentially in recent years, creating exciting new collaborations between 
                 artists and sound engineers, between historians of science and musicologists. While there has been a lot of  
@@ -98,12 +98,7 @@ export default function About() {
                 quality={75}
             />
             <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-                This site, part of my ongoing research project, aims to provide both a research repository for different 
-                approximations to an archive that has been effectively lost; and also to serve as a frame of reference for the
-                imagination in a variety of pedagogical settings, laying the groundwork for expansion into new periods and
-                geographies. While hoping to continue to build out the archive into a more complete and detailed set of
-                soundscapes, extending this from the geographical context of Iberia; and historically, to provide a timeline
-                of soundscapes that cross into the early modern world, this digital humanities project is a first step in
+                This site is part of my ongoing research project. This digital humanities project is a first step in
                 gathering a number of soundscapes circumscribed at this stage by the period and the space defined by Medieval
                 Iberia, a location and a period in which the exchanges between multiple languages, religions, and ethnicities
                 produced a rich set of cultures with productive contrasts at all levels --including sound.
@@ -119,21 +114,18 @@ export default function About() {
             />
             <p className="text-base sm:text-lg md:text-xl leading-relaxed">
                 As the only contemporary record of sound available to us from eras in which there was no other recording 
-                technology available, written language --and literary language as a particularly creative and rich site for 
-                the transcription/translation of sound via the verbal-- that alludes, suggests, or directly references 
+                technology available, written language that alludes, suggests, or directly references 
                 different soundscapes, is the only approximation that we have to this primary sense of cognition. Literature’s 
                 relation to the aural is not only as record, however. While medieval literature was mostly experienced through 
                 the ear, this aural dimension is not only crucial at the level of dissemination, but is essential to 
-                composition itself, where sound’s import is most evident in poetry, but is also as part of literature’s most 
+                composition itself. While sound’s import is most evident in poetry, it is also as part of literature’s most 
                 complex rhetorical edifices, from onomatopoeia to allegory, from scene-building to characterization. Using 
                 medieval Iberian literary texts as pretexts or starting points for these different roles of sound in 
                 literature, this collection puts together fragments of works that demand a sonic literacy from the audience 
-                to understand, supplement, or interpret the text with sound files. These sound files are themselves 
+                to understand, supplement, or interpret texts. The sound files gathered in these archives are themselves 
                 approximations, reimagining  medieval sound, attempting to bridge the gap between our present loss and a 
                 fictional archive.        
             </p>
-
-            <p className="text-base sm:text-lg md:text-xl font-bold pl-4 sm:pl-12">- Simone Pinet</p>
         </div>
 
         {/* Author Section */}
@@ -181,15 +173,15 @@ export default function About() {
             <div className="flex flex-col md:flex-row justify-between items-center md:items-start max-w-7xl mx-auto">
             <div className="text-center md:text-left mb-6 md:mb-0">
                 <h2 className="text-xl md:text-3xl font-serif mb-1">Medieval Iberian Sound</h2>
-                <p className="text-sm md:text-base font-light tracking-wide">A Digital Humanities Project</p>
+                <p className="text-sm md:text-base font-light tracking-wide font-serif">A Digital Humanities Project</p>
             </div>
-            <ul className="flex space-x-10 text-sm tracking-widest uppercase font-mono">
+                <ul className="flex space-x-10 text-sm tracking-widest uppercase font-serif">
                 <li><Link href="/" className="hover:underline">Home</Link></li>
                 <li><Link href="/about" className="hover:underline">About</Link></li>
                 <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
                 <li><Link href="/texts" className="hover:underline">Texts</Link></li>
-                <li><Link href="/sources" className="hover:underline">Sources</Link></li>
-            </ul>
+                <li><Link href="/credits" className="hover:underline">Credits</Link></li>
+                </ul>
             </div>
         </footer>
     </>

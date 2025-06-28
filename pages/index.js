@@ -11,7 +11,7 @@ export default function Home() {
       <header className="bg-[#1A0A02] text-[#E3D9D1] h-20 sticky top-0 z-50">
         <div className="flex items-center justify-between px-4 sm:px-6 lg:px-12 py-6">
           <Link href="/" className="text-xl font-bold font-serif">
-            Medieval Iberian Sounds
+            Medieval Iberian Sound
           </Link>
 
           {/* Hamburger */}
@@ -36,23 +36,23 @@ export default function Home() {
           </button>
 
           {/* Navigation Links (desktop) */}
-          <ul className="hidden sm:flex space-x-6 text-sm tracking-widest uppercase font-mono">
+          <ul className="hidden sm:flex space-x-6 text-sm tracking-widest uppercase font-serif">
             <li><Link href="/" className="font-bold hover:underline">Home</Link></li>
             <li><Link href="/about" className="hover:underline">About</Link></li>
             <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
             <li><Link href="/texts" className="hover:underline">Texts</Link></li>
-            <li><Link href="/sources" className="hover:underline">Sources</Link></li>
+            <li><Link href="/credits" className="hover:underline">Credits</Link></li>
           </ul>
         </div>
 
         {/* Navigation Links (mobile dropdown) */}
         {menuOpen && (
-          <ul className="sm:hidden flex flex-col items-center space-y-4 pb-4 bg-[#1A0A02] text-sm tracking-widest uppercase font-mono">
+          <ul className="sm:hidden flex flex-col items-center space-y-4 pb-4 bg-[#1A0A02] text-sm tracking-widest uppercase font-serif">
             <li><Link href="/" className="font-bold hover:underline">Home</Link></li>
             <li><Link href="/about" className="hover:underline">About</Link></li>
             <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
             <li><Link href="/texts" className="hover:underline">Texts</Link></li>
-            <li><Link href="/sources" className="hover:underline">Sources</Link></li>
+            <li><Link href="/credits" className="hover:underline">Credits</Link></li>
           </ul>
         )}
       </header>
@@ -70,9 +70,9 @@ export default function Home() {
 
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <h2 className="text-[#E3D9D1] text-2xl sm:text-4xl md:text-5xl font-serif drop-shadow-lg mb-2">
-            Medieval Iberian Sounds
+            Medieval Iberian Sound
           </h2>
-          <p className="text-[#E3D9D1] text-sm sm:text-base md:text-lg drop-shadow">
+          <p className="text-[#E3D9D1] text-sm sm:text-base md:text-lg drop-shadow font-serif">
             A DIGITAL HUMANITIES PROJECT
           </p>
         </div>
@@ -85,18 +85,20 @@ export default function Home() {
             <h2 className="text-xl font-bold font-serif mb-4">Brief Introduction and Project Overview</h2>
             <p className="font-serif">
               This site, part of my ongoing research project, aims to provide both a research repository for different 
-              approximations to an archive that has been effectively lost, and also to serve as a frame of reference for 
-              the imagination in a variety of pedagogical settings. While there has been a lot of interest regarding the 
-              history of the different technologies that transmit, record, and preserve sound, these archives have tended to 
-              document mostly a modern idea of sound, especially from the 19th century onward. Earlier periods have to contend 
-              with the absence of a contemporary record of these sounds except for the textual references to them. Among these, 
-              literary language is a particularly creative and rich site for the transcription and translation of sound. Using 
-              medieval Iberian literary texts as pretexts, this site brings together fragments of works that demand a sonic 
-              literacy from the audience, supplemented with sound files that are themselves approximations, reimaginings of 
-              medieval sound attempting to bridge the gap between our present loss and a fictional archive.
+              approximations to an archive of sound that has been effectively lost, and also to serve as a frame of reference 
+              for the imagination of sound in a variety of pedagogical settings. While there has been a lot of interest 
+              regarding the history of the different technologies that transmit, record, and preserve sound, these archives 
+              have tended to document mostly a modern idea of sound, especially from the 19th century onward. Earlier periods 
+              have to contend with the absence of a contemporary record of these sounds except for the textual references to 
+              them. Among these, literary language is a particularly creative and rich site for the transcription, 
+              translation, and instrumentalization of sound. Using medieval Iberian literary texts as pretexts, this site 
+              brings together fragments of works that demand a sonic literacy from the audience, supplemented with sound 
+              files that are themselves approximations, reimaginings of medieval sound, attempting to bridge the gap between 
+              our present loss and a fictional archive.
             </p>
             <div className="mt-6 flex justify-center md:justify-start">
-              <Link href="/about" className="w-full sm:w-auto bg-[#151A2F] hover:bg-[#2B3153] transition-colors duration-200 rounded px-6 py-3 font-mono text-sm text-[#E3D9D1] text-center">
+              <Link href="/about" className="w-full sm:w-auto bg-[#151A2F] hover:bg-[#2B3153] transition-colors duration-200 
+              rounded px-6 py-3 font-serif text-sm text-[#E3D9D1] text-center">
                 LEARN MORE
               </Link>
             </div>
@@ -139,7 +141,8 @@ export default function Home() {
             />
             <Link
               href="/sounds"
-              className="bg-[#765B33] hover:bg-[#B59F79] transition-colors duration-200 rounded px-6 py-3 font-mono text-sm text-[#E1DBD2]"
+              className="bg-[#765B33] hover:bg-[#B59F79] transition-colors duration-200 rounded px-6 py-3 font-serif 
+              text-sm text-[#E1DBD2]"
             >
               EXPLORE ALL SOUNDS
             </Link>
@@ -164,7 +167,7 @@ export default function Home() {
             </p>
             <Link
               href="/texts"
-              className="bg-[#765B33] hover:bg-[#B59F79] transition-colors duration-200 rounded px-6 py-3 font-mono text-sm text-[#E1DBD2]"
+              className="bg-[#765B33] hover:bg-[#B59F79] transition-colors duration-200 rounded px-6 py-3 font-serif text-sm text-[#E1DBD2]"
             >
               EXPLORE ALL TEXTS
             </Link>
@@ -177,14 +180,14 @@ export default function Home() {
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start max-w-7xl mx-auto">
           <div className="text-center md:text-left mb-6 md:mb-0">
             <h2 className="text-xl md:text-3xl font-serif mb-1">Medieval Iberian Sound</h2>
-              <p className="text-sm md:text-base font-light tracking-wide">A Digital Humanities Project</p>
+              <p className="text-sm md:text-base font-light tracking-wide font-serif">A Digital Humanities Project</p>
           </div>
-            <ul className="flex space-x-10 text-sm tracking-widest uppercase font-mono">
+            <ul className="flex space-x-10 text-sm tracking-widest uppercase font-serif">
               <li><Link href="/" className="hover:underline">Home</Link></li>
               <li><Link href="/about" className="hover:underline">About</Link></li>
               <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
               <li><Link href="/texts" className="hover:underline">Texts</Link></li>
-              <li><Link href="/sources" className="hover:underline">Sources</Link></li>
+              <li><Link href="/credits" className="hover:underline">Credits</Link></li>
             </ul>
           </div>
       </footer>

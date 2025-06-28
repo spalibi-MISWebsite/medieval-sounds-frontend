@@ -1,26 +1,22 @@
 import { useEffect, useState } from 'react'
 import { client } from '../lib/sanity'
-import TextCard from '../components/textCard'
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function Texts() {
-    const [texts, setTexts] = useState([])
+export default function Credits() {
+    const [sources, setSources] = useState([])
     const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
-        client.fetch(`*[_type == "refText"]{
-            _id,
-            title,
-            year,
-            "imageUrl": image.asset->url
+        client.fetch(`*[_type == "source"]{
+        link,
+        siteTitle
         }`).then((data) => {
-            console.log('Fetched:', data)
-            setTexts(data)
+        console.log('Fetched:', data)
+        setSources(data)
         })
     }, [])
 
-  
     return (
         <>
             {/* Header */}
@@ -56,8 +52,8 @@ export default function Texts() {
                     <li><Link href="/" className="hover:underline">Home</Link></li>
                     <li><Link href="/about" className="hover:underline">About</Link></li>
                     <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
-                    <li><Link href="/texts" className="font-bold hover:underline">Texts</Link></li>
-                    <li><Link href="/credits" className="hover:underline">Credits</Link></li>
+                    <li><Link href="/texts" className="hover:underline">Texts</Link></li>
+                    <li><Link href="/credits" className="font-bold hover:underline">Credits</Link></li>
                 </ul>
                 </div>
 
@@ -67,12 +63,12 @@ export default function Texts() {
                     <li><Link href="/" className="hover:underline">Home</Link></li>
                     <li><Link href="/about" className="hover:underline">About</Link></li>
                     <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
-                    <li><Link href="/texts" className="font-bold hover:underline">Texts</Link></li>
-                    <li><Link href="/credits" className="hover:underline">Credits</Link></li>
+                    <li><Link href="/texts" className="hover:underline">Texts</Link></li>
+                    <li><Link href="/credits" className="font-bold hover:underline">Credits</Link></li>
                 </ul>
                 )}
             </header>
-            
+
             <div className="relative -mt-40 z-0 w-full h-[500px] sm:h-[600px] md:h-[700px]">
                 <Image
                     src="/images/cover.png"
@@ -81,18 +77,64 @@ export default function Texts() {
                     className="object-cover opacity-35"
                     priority
                 />
-
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
                 <h2 className="text-[#E3D9D1] text-3xl md:text-5xl font-serif drop-shadow-lg mb-2">
-                    Available Texts
+                    Credits
                 </h2>
                 </div>
             </div>
-
-            {/* Text Cards Section */}
-            <div className="p-6 h-auto bg-[#E3D9D1] flex justify-center">
-                <TextCard allTexts={texts}/>
+        
+            <div className="p-10 h-auto bg-[#E3D9D1] font-serif">
+                <p className="text-xl text-gray-800 p-8">
+                The content on this site links texts to sound files, using images from a variety of manuscripts. The modern 
+                editions of the texts used are credited below. For the sound files, we have used the databases listed below, 
+                in addition to our own recordings or properly credited ones, which can be found here as well. Manuscript 
+                images are from digital libraries, as noted.
+                </p>
+                
+                <ul className="px-20 space-y-4 list-disc text-lg text-[#1A0A02]">
+                {sources.map((source, idx) => (
+                    <li key={idx}>
+                        <Link href={source.link} target="_blank" rel="noopener noreferrer" className="underline hover:text-[#3B0A0A]">
+                            {source.siteTitle}
+                        </Link>
+                    </li>
+                ))}
+                </ul>
             </div>
+
+            {/* Student Contributors Section */}
+            <section className="relative bg-[#464B2C]/25 py-10 px-4 sm:px-6 lg:px-12">
+                <div className="relative z-10 max-w-6xl mx-auto">
+                    <h2 className="text-3xl text-center font-serif text-[#E3D9D1] mb-10">Student Contributors</h2>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    {/* Student Researchers */}
+                    <div className="bg-[#464B2C]/60 text-[#E3D9D1] p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
+                        <h3 className="text-2xl font-bold font-serif mb-4">Research</h3>
+                        <ul className="space-y-2 text-base font-mono">
+                            <li>Jack Brown</li>
+                            <li>María Camila Castro Maldonado</li>
+                            <li>Rocío Corral García</li>
+                            <li>Juan Harari</li>
+                            <li>Montse Li</li>
+                            <li>Sara Stamatiades</li>
+                            <li>Nicholas Lorenzo Vega</li>
+                        </ul>
+                    </div>
+
+                    {/* Web Developers */}
+                    <div className="bg-[#464B2C]/70 text-[#E3D9D1] p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
+                        <h3 className="text-2xl font-bold font-serif mb-4">Web Design</h3>
+                        <ul className="space-y-2 text-base font-mono">
+                            <li>Jesse Cheng</li>
+                            <li>Melanie Jalbert</li>
+                            <li>Jessica Rose Ritchie</li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+            </section>
 
             {/* Footer */}
             <footer className="bg-[#1A0A02] text-[#E3D9D1] px-10 py-8">
@@ -111,5 +153,5 @@ export default function Texts() {
                 </div>
             </footer>
         </>
-    );
+    )
 }

@@ -26,7 +26,8 @@ export default function SoundCard({ allSounds }) {
             )}
 
             {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-start items-center p-4 space-y-4">
+            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-transparent opacity-0 
+            group-hover:opacity-100 transition duration-300 flex flex-col justify-start items-center p-4 space-y-4">
               {sound.audioUrl && (
                 <audio controls className="w-11/12">
                   <source src={sound.audioUrl} type="audio/mpeg" />
@@ -35,7 +36,7 @@ export default function SoundCard({ allSounds }) {
               )}
               <button
                 onClick={() => setSelectedSound(sound)}
-                className="mt-2 bg-[#E3D9D1] text-black font-medium px-4 py-2 rounded hover:bg-[#d5ccc4] transition"
+                className="mt-2 bg-[#E3D9D1] text-black font-serif font-medium px-4 py-2 rounded hover:bg-[#d5ccc4] transition"
               >
                 Read More
               </button>

@@ -68,36 +68,49 @@ export default function TextDetail() {
         {/* Header */}
         <header className="bg-[#1A0A02] text-[#E3D9D1] h-20 sticky top-0 z-50">
             <div className="flex items-center justify-between px-4 sm:px-6 lg:px-12 py-6">
-            <Link href="/" className="text-xl font-bold font-serif">Medieval Iberian Sounds</Link>
+            <Link href="/" className="text-xl font-bold font-serif">
+                Medieval Iberian Sound
+            </Link>
 
+            {/* Hamburger */}
             <button
                 className="sm:hidden focus:outline-none"
                 onClick={() => setMenuOpen(!menuOpen)}
                 aria-label="Toggle navigation"
             >
-                <svg className="w-6 h-6 text-[#E3D9D1]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {menuOpen
-                    ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                    : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />}
+                <svg
+                className="w-6 h-6 text-[#E3D9D1]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                >
+                {menuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                )}
                 </svg>
             </button>
 
-            <ul className="hidden sm:flex space-x-6 text-sm tracking-widest uppercase font-mono">
+            {/* Navigation Links (desktop) */}
+            <ul className="hidden sm:flex space-x-6 text-sm tracking-widest uppercase font-serif">
                 <li><Link href="/" className="hover:underline">Home</Link></li>
                 <li><Link href="/about" className="hover:underline">About</Link></li>
                 <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
                 <li><Link href="/texts" className="hover:underline">Texts</Link></li>
-                <li><Link href="/sources" className="hover:underline">Sources</Link></li>
+                <li><Link href="/credits" className="hover:underline">Credits</Link></li>
             </ul>
             </div>
 
+            {/* Navigation Links (mobile dropdown) */}
             {menuOpen && (
-            <ul className="sm:hidden flex flex-col items-center space-y-4 pb-4 bg-[#1A0A02] text-sm tracking-widest uppercase font-mono">
+            <ul className="sm:hidden flex flex-col items-center space-y-4 pb-4 bg-[#1A0A02] text-sm tracking-widest uppercase font-serif">
                 <li><Link href="/" className="hover:underline">Home</Link></li>
                 <li><Link href="/about" className="hover:underline">About</Link></li>
                 <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
                 <li><Link href="/texts" className="hover:underline">Texts</Link></li>
-                <li><Link href="/sources" className="hover:underline">Sources</Link></li>
+                <li><Link href="/credits" className="hover:underline">Credits</Link></li>
             </ul>
             )}
         </header>
@@ -112,14 +125,14 @@ export default function TextDetail() {
             />
             )}
 
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-            <h1 className="text-4xl font-serif mb-4 text-[#E3D9D1]">{text.title}</h1>
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center font-serif">
+            <h1 className="text-4xl mb-4 text-[#E3D9D1]">{text.title}</h1>
             <p className="mb-2 text-[#E3D9D1]"><strong>Author/Source:</strong> {text.author}</p>
             <p className="mb-2 text-[#E3D9D1]"><strong>Year:</strong> {text.year}</p>
             </div>
         </div>
 
-        <div className="p-6 bg-[#E3D9D1] min-h-screen">
+        <div className="p-6 bg-[#E3D9D1] min-h-screen font-serif">
             
             <h2 className="py-8 text-[#1A0A02] text-2xl text-center"> Sounds Referenced in this Text</h2>
 
@@ -165,15 +178,15 @@ export default function TextDetail() {
             <div className="flex flex-col md:flex-row justify-between items-center md:items-start max-w-7xl mx-auto">
             <div className="text-center md:text-left mb-6 md:mb-0">
                 <h2 className="text-xl md:text-3xl font-serif mb-1">Medieval Iberian Sound</h2>
-                <p className="text-sm md:text-base font-light tracking-wide">A Digital Humanities Project</p>
+                <p className="text-sm md:text-base font-light tracking-wide font-serif">A Digital Humanities Project</p>
             </div>
-            <ul className="flex space-x-10 text-sm tracking-widest uppercase font-mono">
+                <ul className="flex space-x-10 text-sm tracking-widest uppercase font-serif">
                 <li><Link href="/" className="hover:underline">Home</Link></li>
                 <li><Link href="/about" className="hover:underline">About</Link></li>
                 <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
                 <li><Link href="/texts" className="hover:underline">Texts</Link></li>
-                <li><Link href="/sources" className="hover:underline">Sources</Link></li>
-            </ul>
+                <li><Link href="/credits" className="hover:underline">Credits</Link></li>
+                </ul>
             </div>
         </footer>
     </>
