@@ -124,7 +124,7 @@ return (
 
                 {/* Category Chips */}
                 <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
-                {["animal", "church", "voice", "nature", "instrument", "other"].map((cat) => (
+                {["animal", "religion", "nature", "voice", "instrument", "everyday", "war", "other"].map((cat) => (
                     <button
                     key={cat}
                     onClick={() =>
