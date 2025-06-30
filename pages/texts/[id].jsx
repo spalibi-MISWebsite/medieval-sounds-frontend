@@ -79,7 +79,7 @@ export default function TextDetail() {
                 aria-label="Toggle navigation"
             >
                 <svg
-                className="w-6 h-6 text-[#7B2E3C]"
+                className="w-6 h-6 text-[#E3D9D1]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -105,7 +105,7 @@ export default function TextDetail() {
 
             {/* Navigation Links (mobile dropdown) */}
             {menuOpen && (
-            <ul className="sm:hidden flex flex-col items-center space-y-4 pb-4 bg-[#1A0A02] text-sm tracking-widest uppercase font-serif">
+            <ul className="sm:hidden flex flex-col items-center space-y-4 pb-4 bg-[#7B2E3C] text-sm tracking-widest uppercase font-serif">
                 <li><Link href="/" className="hover:underline">Home</Link></li>
                 <li><Link href="/about" className="hover:underline">About</Link></li>
                 <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
