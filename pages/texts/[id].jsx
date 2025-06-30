@@ -79,7 +79,7 @@ export default function TextDetail() {
                 aria-label="Toggle navigation"
             >
                 <svg
-                className="w-6 h-6 text-[#E3D9D1]"
+                className="w-6 h-6 text-[#7B2E3C]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
