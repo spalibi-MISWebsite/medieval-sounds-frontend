@@ -8,7 +8,7 @@ export default function About() {
   return (
     <>
         {/* Header */}
-        <header className="bg-[#BAA393] text-[#30251d] h-20 sticky top-0 z-50">
+        <header className="bg-[#7B2E3C] text-[#E3D9D1] h-20 sticky top-0 z-50">
             <div className="flex items-center justify-between px-4 sm:px-6 lg:px-12 py-6">
             <Link href="/" className="text-xl font-bold font-serif">
                 Medieval Iberian Sound
@@ -75,7 +75,7 @@ export default function About() {
         </div>
 
         {/* Main Text Content */}
-        <div className="bg-[#EDE0CF] p-4 sm:p-6 md:p-10 text-gray-800 space-y-10 font-serif">
+        <div className="bg-[#E3D9D1] text-[#30251d] p-4 sm:p-6 md:p-10 text-gray-800 space-y-10 font-serif">
             <p className="text-base sm:text-lg md:text-xl leading-relaxed">
                 Sound studies have been growing exponentially in recent years, creating exciting new collaborations between 
                 artists and sound engineers, between historians of science and musicologists. While there has been a lot of  
@@ -96,6 +96,7 @@ export default function About() {
                 height={60}
                 className="w-full h-auto"
                 quality={75}
+                
             />
             <p className="text-base sm:text-lg md:text-xl leading-relaxed">
                 This site is part of my ongoing research project. This digital humanities project is a first step in
@@ -129,19 +130,20 @@ export default function About() {
         </div>
 
         {/* Author Section */}
-        <section className="w-full bg-[#BF6E46]/25 text-[#E3D9D1] px-6 py-20">
+        <section className="w-full bg-[#829EB6]/25 text-gray-200 px-6 py-20 font-serif">
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start md:gap-20 text-center md:text-left">
                 
                 {/* Image + Name + Email */}
                 <div className="flex flex-col items-center md:items-start w-full md:w-1/3">
-                    <Image
-                        src="/images/headshot.jpg"
+                    <div className="w-40 h-40 relative">
+                        <Image
+                        src="/images/bird.png"
                         alt="Simone Pinet's headshot"
-                        width={240}
-                        height={240}
+                        fill
                         className="object-cover rounded-full"
                         quality={80}
-                    />
+                        />
+                    </div>
 
                     <h3 className="mt-6 text-xl md:text-2xl font-semibold tracking-wide">Prof. Simone Pinet</h3>
                     <p className="text-sm md:text-base mt-2">sp349@cornell.edu</p>
@@ -169,7 +171,7 @@ export default function About() {
         </section>
 
         {/* Footer */}
-        <footer className="bg-[#BAA393] text-[#30251d] px-10 py-8">
+        <footer className="bg-[#7B2E3C] text-[#E3D9D1] px-10 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start max-w-7xl mx-auto">
             <div className="text-center md:text-left mb-6 md:mb-0">
             <h2 className="text-xl md:text-3xl font-serif mb-1">Medieval Iberian Sound</h2>

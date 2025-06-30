@@ -47,7 +47,7 @@ export default function Credits() {
     return (
         <>
             {/* Header */}
-            <header className="bg-[#1A0A02] text-[#E3D9D1] h-20 sticky top-0 z-50">
+            <header className="bg-[#7B2E3C] text-[#E3D9D1] h-20 sticky top-0 z-50">
                 <div className="flex items-center justify-between px-4 sm:px-6 lg:px-12 py-6">
                 <Link href="/" className="text-xl font-bold font-serif">
                     Medieval Iberian Sound
@@ -113,7 +113,7 @@ export default function Credits() {
         
             {/* Intro */}
             <div className="p-10 h-auto bg-[#E3D9D1] font-serif">
-                <p className="text-xl text-gray-800 p-8">
+                <p className="text-xl text-gray-800 pb-8">
                 The content on this site links texts to sound files, using images from a variety of manuscripts. The modern
                 editions of the texts used are credited below. For the sound files, we have used the databases listed below,
                 in addition to our own recordings or properly credited ones, which can be found here as well. Manuscript
@@ -125,7 +125,7 @@ export default function Credits() {
                 <div key={key} className="mb-6">
                     <button
                     onClick={() => toggleSection(key)}
-                    className="w-full text-left text-2xl font-bold mb-2 px-4 py-2 bg-[#3B0A0A] text-[#E3D9D1] rounded hover:bg-[#4f1d1d] transition"
+                    className="w-full text-left text-2xl font-bold mb-2 px-4 py-2 bg-[#1A0A02]/60 text-[#f5f1ef] rounded hover:bg-[#30231d] transition"
                     >
                     {sectionTitleMap[key]}
                     </button>
@@ -155,13 +155,13 @@ export default function Credits() {
 
 
             {/* Student Contributors Section */}
-            <section className="relative bg-[#464B2C]/25 py-10 px-4 sm:px-6 lg:px-12">
+            <section className="relative bg-[#829EB6]/25 py-10 px-4 sm:px-6 lg:px-12">
                 <div className="relative z-10 max-w-6xl mx-auto">
-                    <h2 className="text-3xl text-center font-serif text-[#E3D9D1] mb-10">Student Contributors</h2>
+                    <h2 className="text-3xl text-center font-serif text-gray-200 mb-10">Student Contributors</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     {/* Student Researchers */}
-                    <div className="bg-[#464B2C]/60 text-[#E3D9D1] p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
+                    <div className="bg-[#1c2730]/80 text-gray-300 p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
                         <h3 className="text-2xl font-bold font-serif mb-4">Research</h3>
                         <ul className="space-y-2 text-base font-mono">
                             <li>Jack Brown</li>
@@ -175,7 +175,7 @@ export default function Credits() {
                     </div>
 
                     {/* Web Developers */}
-                    <div className="bg-[#464B2C]/70 text-[#E3D9D1] p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
+                    <div className="bg-[#1c2730]/80 text-gray-300 p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
                         <h3 className="text-2xl font-bold font-serif mb-4">Web Design</h3>
                         <ul className="space-y-2 text-base font-mono">
                             <li>Jesse Cheng</li>
@@ -188,7 +188,7 @@ export default function Credits() {
             </section>
 
             {/* Footer */}
-            <footer className="bg-[#1A0A02] text-[#E3D9D1] px-10 py-8">
+            <footer className="bg-[#7B2E3C] text-[#E3D9D1] px-10 py-8">
             <div className="flex flex-col md:flex-row justify-between items-center md:items-start max-w-7xl mx-auto">
                 <div className="text-center md:text-left mb-6 md:mb-0">
                 <h2 className="text-xl md:text-3xl font-serif mb-1">Medieval Iberian Sound</h2>

@@ -9,8 +9,8 @@ export default function Home() {
     <>
       {/* Header */}
       <header
-        className="text-[#E3D9D1] h-20 sticky top-0 z-50"
-        style={{ backgroundColor: 'rgba(93, 74, 79, 1)' }}
+        className="text-[#E3D9D1] h-20 sticky top-0 z-50 bg-[#7B2E3C]"
+        //style={{ backgroundColor: 'rgba(93, 74, 79, 1)' }}
       >        
         <div className="flex items-center justify-between px-4 sm:px-6 lg:px-12 py-6">
           <Link href="/" className="text-xl font-bold font-serif">
@@ -84,7 +84,7 @@ export default function Home() {
       {/* Introduction Section */}
       <section className="bg-[#E3D9D1] px-4 sm:px-6 lg:px-12 py-12">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-          <div className="text-sm sm:text-base leading-relaxed tracking-wide text-[#1A0A02]">
+          <div className="text-sm sm:text-base leading-relaxed tracking-wide text-[#30251d]">
             <h2 className="text-xl font-bold font-serif mb-4">Brief Introduction and Project Overview</h2>
             <p className="font-serif">
               This site, part of my ongoing research project, aims to provide both a research repository for different 
@@ -100,8 +100,8 @@ export default function Home() {
               our present loss and a fictional archive.
             </p>
             <div className="mt-6 flex justify-center md:justify-start">
-              <Link href="/about" className="w-full sm:w-auto bg-[#151A2F] hover:bg-[#2B3153] transition-colors duration-200 
-              rounded px-6 py-3 font-serif text-sm text-[#E3D9D1] text-center">
+              <Link href="/about" className="w-full sm:w-auto bg-[#2f4150] hover:bg-[#1c2730] transition-colors duration-200 
+              rounded px-6 py-3 font-serif text-sm text-gray-200 text-center">
                 LEARN MORE
               </Link>
             </div>
@@ -146,7 +146,7 @@ export default function Home() {
             />
             <Link
               href="/sounds"
-              className="bg-[#765B33] hover:bg-[#B59F79] transition-colors duration-200 rounded px-6 py-3 font-serif 
+              className="bg-[#765B33] hover:bg-[#594526] transition-colors duration-200 rounded px-6 py-3 font-serif 
               text-sm text-[#E1DBD2]"
             >
               EXPLORE ALL SOUNDS
@@ -171,7 +171,7 @@ export default function Home() {
             </p>
             <Link
               href="/texts"
-              className="bg-[#765B33] hover:bg-[#B59F79] transition-colors duration-200 rounded px-6 py-3 font-serif text-sm text-[#E1DBD2]"
+              className="bg-[#765B33] hover:bg-[#594526] transition-colors duration-200 rounded px-6 py-3 font-serif text-sm text-[#E1DBD2]"
             >
               EXPLORE ALL TEXTS
             </Link>
@@ -181,7 +181,7 @@ export default function Home() {
 
 
       {/* Footer */}
-      <footer className="bg-[#5D4A4F] text-[#E3D9D1] px-10 py-8">
+      <footer className="bg-[#7B2E3C] text-[#E3D9D1] px-10 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start max-w-7xl mx-auto">
           <div className="text-center md:text-left mb-6 md:mb-0">
             <h2 className="text-xl md:text-3xl font-serif mb-1">Medieval Iberian Sound</h2>
