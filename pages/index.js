@@ -1,9 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { client } from '../lib/sanity';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Home() {
+  const [featuredSound, setFeaturedSound] = useState(null);
+  const [featuredText, setFeaturedText] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    client.fetch(`*[_type == "sound" && featured == true][0]{
+      title,
+      "imageUrl": image.asset->url,
+      "audioUrl": file.asset->url,
+      originalText,
+      translatedText
+    }`).then(setFeaturedSound);
+
+    client.fetch(`*[_type == "refText" && featured == true][0]{
+      title,
+      date,
+      "imageUrl": image.asset->url
+    }`).then(setFeaturedText);
+  }, []);
 
   return (
     <>
@@ -125,56 +144,65 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Featured Sound */}
-          <div className="bg-[#1A0A02]/70 text-[#E3D9D1] p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
-            <p className="font-serif text-2xl md:text-3xl mb-6">Featured Sound</p>
-            <div className="rounded-full border-4 border-[#E3D9D1] w-40 h-40 mb-6 overflow-hidden">
-              <Image
-                src="/images/bird.png"
-                alt="Crow"
-                width={160}
-                height={160}
-                className="object-cover rounded-full"
-              />
-            </div>
-            <p className="font-serif text-xl mb-4">Corneja / Crow</p>
-            <Image
-              src="/images/audio-bar.png"
-              alt="Audio waveform"
-              width={224}
-              height={40}
-              className="mx-auto mb-6"
-            />
-            <Link
-              href="/sounds"
-              className="bg-[#765B33] hover:bg-[#594526] transition-colors duration-200 rounded px-6 py-3 font-serif 
-              text-sm text-[#E1DBD2]"
-            >
-              EXPLORE ALL SOUNDS
-            </Link>
+          <div className="bg-[#1A0A02]/70 text-[#E3D9D1] py-10 px-6 rounded-xl shadow-lg flex flex-col items-center text-center">
+            {featuredSound ? (
+              <>
+                <h2 className="text-2xl md:text-3xl font-serif mb-6">Featured Sound</h2>
+                <Image
+                  src={featuredSound.imageUrl}
+                  alt={featuredSound.title}
+                  width={150}           // smaller width
+                  height={150}          // smaller height (keep square for circle)
+                  className="rounded-full object-cover mb-6"  // rounded-full for circle
+                />
+
+                <h3 className="text-xl font-serif mb-6">{featuredSound.title}</h3>
+                {featuredSound.audioUrl && (
+                  <audio controls className="w-full max-w-sm mx-auto mb-6">
+                    <source src={featuredSound.audioUrl} type="audio/mpeg" />
+                  </audio>
+                )}
+                <Link
+                  href="/sounds"
+                  className="bg-[#765B33] hover:bg-[#594526] transition-colors duration-200 rounded px-6 py-3 font-serif text-sm text-[#E1DBD2]"
+                >
+                  EXPLORE ALL SOUNDS
+                </Link>
+              </>
+            ) : (
+              <p>No featured sound found.</p>
+            )}
           </div>
 
           {/* Featured Text */}
           <div className="bg-[#1A0A02]/70 text-[#E3D9D1] p-8 rounded-xl shadow-lg flex flex-col items-center text-center">
-            <p className="font-serif text-2xl md:text-3xl mb-6">Featured Text</p>
-            <div className="w-40 h-60 mb-6">
-              <Image
-                src="/images/cover.png"
-                alt="Book cover"
-                width={160}
-                height={240}
-                className="object-cover w-full h-full shadow-md"
-              />
-            </div>
-            <p className="font-serif text-xl mb-6">
-              Libro de horas, según el uso de Roma<br />
-              <span className="text-lg">1401–1500</span>
-            </p>
-            <Link
-              href="/texts"
-              className="bg-[#765B33] hover:bg-[#594526] transition-colors duration-200 rounded px-6 py-3 font-serif text-sm text-[#E1DBD2]"
-            >
-              EXPLORE ALL TEXTS
-            </Link>
+            {featuredText ? (
+              <>
+                <p className="font-serif text-2xl md:text-3xl mb-6">Featured Text</p>
+                <div className="w-40 h-60 mb-6">
+                  <Image
+                    src={featuredText.imageUrl}
+                    alt={featuredText.title}
+                    width={160}
+                    height={240}
+                    className="object-cover shadow-md rounded"
+                  />
+                </div>
+
+                <p className="font-serif text-xl mb-6">
+                  {featuredText.title}
+                  {featuredText.date && <><br /><span className="text-lg">{featuredText.date}</span></>}
+                </p>
+                <Link
+                  href="/texts"
+                  className="bg-[#765B33] hover:bg-[#594526] transition-colors duration-200 rounded px-6 py-3 font-serif text-sm text-[#E1DBD2]"
+                >
+                  EXPLORE ALL TEXTS
+                </Link>
+              </>
+            ) : (
+              <p className="text-white">No featured text found.</p>
+            )}
           </div>
         </div>
       </section>
