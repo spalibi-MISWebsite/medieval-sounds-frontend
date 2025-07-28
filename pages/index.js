@@ -28,8 +28,8 @@ export default function Home() {
     <>
       {/* Header */}
       <header
-        className="text-[#E3D9D1] h-20 sticky top-0 z-50 bg-[#7B2E3C]"
-        //style={{ backgroundColor: 'rgba(93, 74, 79, 1)' }}
+        className="text-[#E3D9D1] h-20 sticky top-0 z-50"
+        style={{ backgroundColor: 'rgba(38, 4, 8, 0.5)' }}
       >        
         <div className="flex items-center justify-between px-4 sm:px-6 lg:px-12 py-6">
           <Link href="/" className="text-xl font-bold font-serif">
@@ -86,7 +86,7 @@ export default function Home() {
           src="/images/cover.png"
           alt="Libro de Horas cover"
           fill
-          className="object-cover opacity-90"
+          className="object-cover opacity-80"
           priority
         />
 
@@ -209,7 +209,7 @@ export default function Home() {
 
 
       {/* Footer */}
-      <footer className="bg-[#7B2E3C] text-[#E3D9D1] px-10 py-8">
+      <footer className="bg-[#2e0905] text-[#E3D9D1] px-10 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start max-w-7xl mx-auto">
           <div className="text-center md:text-left mb-6 md:mb-0">
             <h2 className="text-xl md:text-3xl font-serif mb-1">Medieval Iberian Sound</h2>
