@@ -66,54 +66,57 @@ export default function TextDetail() {
   return (
     <>
         {/* Header */}
-        <header className="bg-[#7B2E3C] text-[#E3D9D1] h-20 sticky top-0 z-50">
+            <header
+                className="text-[#E3D9D1] h-20 sticky top-0 z-50"
+                style={{ backgroundColor: 'rgba(38, 4, 8, 0.5)' }}
+            >              
             <div className="flex items-center justify-between px-4 sm:px-6 lg:px-12 py-6">
-            <Link href="/" className="text-xl font-bold font-serif">
-                Medieval Iberian Sound
-            </Link>
+                <Link href="/" className="text-xl font-bold font-serif">
+                    Medieval Iberian Sound
+                </Link>
 
-            {/* Hamburger */}
-            <button
-                className="sm:hidden focus:outline-none"
-                onClick={() => setMenuOpen(!menuOpen)}
-                aria-label="Toggle navigation"
-            >
-                <svg
-                className="w-6 h-6 text-[#E3D9D1]"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
+                {/* Hamburger */}
+                <button
+                    className="sm:hidden focus:outline-none"
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    aria-label="Toggle navigation"
                 >
-                {menuOpen ? (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                    <svg
+                    className="w-6 h-6 text-[#E3D9D1]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    >
+                    {menuOpen ? (
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                    ) : (
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                    )}
+                    </svg>
+                </button>
+
+                {/* Navigation Links (desktop) */}
+                <ul className="hidden sm:flex space-x-6 text-sm tracking-widest uppercase font-serif">
+                    <li><Link href="/" className="hover:underline">Home</Link></li>
+                    <li><Link href="/about" className="hover:underline">About</Link></li>
+                    <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
+                    <li><Link href="/texts" className="hover:underline">Texts</Link></li>
+                    <li><Link href="/credits" className="font-bold hover:underline">Credits</Link></li>
+                </ul>
+                </div>
+
+                {/* Navigation Links (mobile dropdown) */}
+                {menuOpen && (
+                <ul className="sm:hidden flex flex-col items-center space-y-4 pb-4 bg-[#7B2E3C] text-sm tracking-widest uppercase font-serif">
+                    <li><Link href="/" className="hover:underline">Home</Link></li>
+                    <li><Link href="/about" className="hover:underline">About</Link></li>
+                    <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
+                    <li><Link href="/texts" className="hover:underline">Texts</Link></li>
+                    <li><Link href="/credits" className="font-bold hover:underline">Credits</Link></li>
+                </ul>
                 )}
-                </svg>
-            </button>
-
-            {/* Navigation Links (desktop) */}
-            <ul className="hidden sm:flex space-x-6 text-sm tracking-widest uppercase font-serif">
-                <li><Link href="/" className="hover:underline">Home</Link></li>
-                <li><Link href="/about" className="hover:underline">About</Link></li>
-                <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
-                <li><Link href="/texts" className="hover:underline">Texts</Link></li>
-                <li><Link href="/credits" className="hover:underline">Credits</Link></li>
-            </ul>
-            </div>
-
-            {/* Navigation Links (mobile dropdown) */}
-            {menuOpen && (
-            <ul className="sm:hidden flex flex-col items-center space-y-4 pb-4 bg-[#7B2E3C] text-sm tracking-widest uppercase font-serif">
-                <li><Link href="/" className="hover:underline">Home</Link></li>
-                <li><Link href="/about" className="hover:underline">About</Link></li>
-                <li><Link href="/sounds" className="hover:underline">Sounds</Link></li>
-                <li><Link href="/texts" className="hover:underline">Texts</Link></li>
-                <li><Link href="/credits" className="hover:underline">Credits</Link></li>
-            </ul>
-            )}
-        </header>
+            </header>
 
         {/* Hero with background image */}
         <div className="relative -mt-40 z-0">
